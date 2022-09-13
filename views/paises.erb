@@ -1,0 +1,14 @@
+<h1>Lista de paises</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Nombre</th>
+  </tr>
+  <% paises.each do |pais| %>
+    <tr>
+      <td><%= pais['id'] %></td>
+      <td><%= pais['nombre'] %></td>
+    </tr>
+  <% end %>
+</table>

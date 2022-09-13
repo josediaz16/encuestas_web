@@ -16,3 +16,10 @@ CREATE TABLE encuestas (
   id_pais INT NOT NULL,
   FOREIGN KEY (id_pais) REFERENCES paises (id)
 );
+
+INSERT INTO paises(nombre)
+VALUES('Colombia');
+INSERT INTO paises(nombre)
+VALUES('Argentina');
+INSERT INTO paises(nombre)
+VALUES('Mexico');

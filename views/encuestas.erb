@@ -6,6 +6,7 @@
     <th>Sexo</th>
     <th>Edad</th>
     <th>Pais</th>
+    <th>Acciones</th>
   </tr>
   <% encuestas.each do |encuesta| %>
     <tr>
@@ -13,6 +14,12 @@
       <td><%= encuesta['sexo'] %></td>
       <td><%= encuesta['edad'] %></td>
       <td><%= encuesta['nombre_pais'] %></td>
+      <td>
+        <a href="/encuestas/<%= encuesta['id'] %>">Editar</a>
+        <form action="/encuestas/borrar/<%= encuesta['id']%>" method="POST">
+          <button type="submit">Borrar</button>
+        </form>
+      </td>
     </tr>
   <% end %>
 </table>

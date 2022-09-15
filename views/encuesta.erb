@@ -1,16 +1,21 @@
 <h1>Llena la encuesta</h1>
 
-<form action="/enviar_encuesta" method="POST" >
+<form action="<%= accion %>" method="<%= verbo %>" >
   <div>
     <label>Ingresa tu nombre:</label>
-    <input type="text" name="nombre"/>
+    <input type="text" name="nombre" value="<%= encuesta['nombre'] %>"/>
   </div>
 
   <div>
     <label>Selecciona tu sexo</label>
     <select name="sexo">
-      <option value="M">Hombre</option>
-      <option value="F">Mujer</option>
+      <% if encuesta['sexo'] == 'M' %>
+        <option value="M" selected>Hombre</option>
+        <option value="F">Mujer</option>
+      <% else %>
+        <option value="M">Hombre</option>
+        <option value="F" selected>Mujer</option>
+      <% end %>
     </select>
   </div>
 
@@ -18,16 +23,22 @@
     <label>Selecciona tu pais</label>
     <select name="id_pais">
       <% paises.each do |pais| %>
-        <option value="<%= pais['id'] %>">
-          <%= pais['nombre'] %>
-        </option>
+        <% if pais['id'] == encuesta['id_pais'] %> 
+          <option value="<%= pais['id'] %>" selected>
+            <%= pais['nombre'] %>
+          </option>
+        <% else %>
+          <option value="<%= pais['id'] %>">
+            <%= pais['nombre'] %>
+          </option>
+        <% end %>
       <% end %>
     </select>
   </div>
 
   <div>
     <label>Ingresa tu edad</label>
-    <input type="number" name="edad" />
+    <input type="number" name="edad", value="<%= encuesta['edad'] %>" />
   </div>
 
   <div>

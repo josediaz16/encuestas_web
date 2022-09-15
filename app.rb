@@ -26,5 +26,10 @@ post '/enviar_encuesta' do
 
   conn.exec(sql)
 
-  redirect '/paises'
+  redirect '/encuestas'
+end
+
+get '/encuestas' do
+  encuestas = conn.exec("SELECT encuestas.*, paises.nombre AS nombre_pais FROM encuestas INNER JOIN paises ON paises.id= encuestas.id_pais").to_a
+  erb :encuestas, locals: { encuestas: encuestas }
 end

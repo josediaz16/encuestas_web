@@ -1,0 +1,18 @@
+<h1>Encuestas</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Sexo</th>
+    <th>Edad</th>
+    <th>Pais</th>
+  </tr>
+  <% encuestas.each do |encuesta| %>
+    <tr>
+      <td><%= encuesta['nombre'] %></td>
+      <td><%= encuesta['sexo'] %></td>
+      <td><%= encuesta['edad'] %></td>
+      <td><%= encuesta['nombre_pais'] %></td>
+    </tr>
+  <% end %>
+</table>
